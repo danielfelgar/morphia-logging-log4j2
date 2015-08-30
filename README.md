@@ -1,4 +1,4 @@
-Lib to log Morphia via Log4j2
+Lib to logging Morphia via Log4j2
 ==========================================
 ---
 
