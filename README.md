@@ -1,2 +1,14 @@
-# morphia-logging-log4j2
-Morphia Logging via Log4j2
+Lib to log Morphia via Log4j2
+==========================================
+---
+
+How to use
+---------
+```
+MorphiaLoggerFactory.registerLogger(Log4jLog.class);
+```
+
+Changelog
+---------
+1.0
+  Initial version with basic test
