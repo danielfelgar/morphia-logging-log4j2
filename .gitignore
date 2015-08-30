@@ -1,2 +1,8 @@
-# exclude targetfolder
+# exclude target maven
+# exclude .classpath
+# exclude .project
+# exclude .settings
+/.classpath
+/.project
+/.settings/*
 /target/*
