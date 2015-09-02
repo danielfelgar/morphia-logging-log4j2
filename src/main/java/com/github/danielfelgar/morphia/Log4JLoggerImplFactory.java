@@ -5,9 +5,9 @@ import org.mongodb.morphia.logging.LoggerFactory;
 
 public class Log4JLoggerImplFactory implements LoggerFactory {
 
-	@Override
-	public Logger get(Class<?> c) {
-		return new Log4JLogger(c);
-	}
+    @Override
+    public Logger get(Class<?> c) {
+        return new Log4JLogger(c);
+    }
 
 }

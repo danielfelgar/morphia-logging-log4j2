@@ -33,45 +33,45 @@ import com.github.danielfelgar.morphia.Log4JLoggerImplFactory;
  */
 public class Log4JLoggerTest extends TestBase {
 
-	private ByteArrayOutputStream baos;
-	private PrintStream oldErr;
+    private ByteArrayOutputStream baos;
+    private PrintStream oldErr;
 
-	@Before
-	@Override
-	public void setUp() {
+    @Before
+    @Override
+    public void setUp() {
 
-		oldErr = System.err;
-		baos = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(baos));
-		System.setErr(new PrintStream(baos));
+        oldErr = System.err;
+        baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+        System.setErr(new PrintStream(baos));
 
-		MorphiaLoggerFactory.registerLogger(Log4JLoggerImplFactory.class);
+        MorphiaLoggerFactory.registerLogger(Log4JLoggerImplFactory.class);
 
-		super.setUp();
-	}
+        super.setUp();
+    }
 
-	@After
-	public void tearDown() {
-		System.setErr(oldErr);
-	}
+    @After
+    public void tearDown() {
+        System.setErr(oldErr);
+    }
 
-	@Test
-	public final void testWarningString() {
+    @Test
+    public final void testWarningString() {
 
-		getDs().save(new LoggingTestEntity());
-		// string type where int expected
-		getDs().createQuery(LoggingTestEntity.class).field("i").equal("5");
-		// CHECKSTYLE:OFF
-		System.err.flush();
-		// CHECKSTYLE:ON
+        getDs().save(new LoggingTestEntity());
+        // string type where int expected
+        getDs().createQuery(LoggingTestEntity.class).field("i").equal("5");
+        // CHECKSTYLE:OFF
+        System.err.flush();
+        // CHECKSTYLE:ON
 
-		final String log = new String(baos.toByteArray());
-		
-		Assert.assertTrue(log.contains("WARN"));
-		Assert.assertTrue(log.contains("instance of"));
-		Assert.assertTrue(log.contains("java.lang.String"));
-		Assert.assertTrue(log.contains("which is declared"));
-		Assert.assertTrue(log.contains("LoggerImplFactory set to com.felgar.morphia.Log4JLoggerImplFactory"));
-	}
+        final String log = new String(baos.toByteArray());
+
+        Assert.assertTrue(log.contains("WARN"));
+        Assert.assertTrue(log.contains("instance of"));
+        Assert.assertTrue(log.contains("java.lang.String"));
+        Assert.assertTrue(log.contains("which is declared"));
+        Assert.assertTrue(log.contains("LoggerImplFactory set to com.github.danielfelgar.morphia.Log4JLoggerImplFactory"));
+    }
 
 }

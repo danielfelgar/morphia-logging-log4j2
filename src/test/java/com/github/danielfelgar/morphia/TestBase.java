@@ -1,13 +1,11 @@
 package com.github.danielfelgar.morphia;
 
-
 import org.junit.Before;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
-
 
 public abstract class TestBase {
 
